@@ -1,5 +1,7 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
+//Js as thats how it will appear after tscompiler
+import taskRoutes from './routes/tasks.js';
 
 // Access env variables
 dotenv.config();
@@ -10,22 +12,14 @@ const PORT = process.env.PORT || 5000;
 // Access req.body as json
 app.use(express.json());
 
-
-app.get('/', (req: Request, res: Response) => {
-    res.send("Juhu verld");
+// Home route
+app.get('/', (req, res) => {
+    res.send("Task Management API");
     console.log(`Response sent`);
 })
 
-app.get('/api', (req, res) => {
-    
-})
-app.get('/api/:id', (req, res) => {
-
-})
-
-app.post('/api/:id', (req, res) => {
-
-})
+// Attach tasks router at this task prefix
+app.use('/api/tasks', taskRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
