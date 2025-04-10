@@ -15,7 +15,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "gen:types": "npx supabase gen types typescript --project-id jlzuluvkfegebsednyha > src/types/database.types.ts"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/Holl4444/dts-developer-challenge#readme",
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
     "dotenv": "^16.4.7",
     "express": "^5.1.0"
   },
@@ -44,6 +46,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
+    "supabase": "^2.20.12",
     "supertest": "^7.1.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
