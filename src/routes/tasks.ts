@@ -77,6 +77,33 @@ router.post('/', async (req: Request<{}, {}, TaskInsert>, res: Response) => {
   }
 });
 
-// DEL, PUT, PATCH
+router.delete('/:id', async (req: Request, res: Response) => {
+  try {
+    const { data, error } = await supabase
+      .from('Tasks')
+      .delete()
+      .eq('id', `${req.params.id}`).single();
+    
+      if (error) {
+        res.status(500).json({ error: error.message });
+        return;
+    }
+    res.json({
+      message: `Task deleted successfully`,
+      deletedTask: data
+    })
+
+  } catch (err) {
+    console.error(`Error deleting task with id ${req.params.id}`, err);
+    res
+      .status(500)
+      .json({
+        error: `Failed to delete task with id ${req.params.id}`,
+      });
+    return;
+  }
+})
+
+// PUT, PATCH
 
 export default router;
