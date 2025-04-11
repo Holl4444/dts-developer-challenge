@@ -45,12 +45,7 @@ Database Choice: Supabase
 - Built on PostgreSQL - reliable, powerful queries.
 - Realtime updates if needed.
 - Intuitive dashboard.
-
-
-Holl4444
-I would like to add why I chose Supabase. From my perspective I was familiar with it. It has auth validation and easy to set up policies and it's free tier doesnt have a time limit.
 - I have some familiarity with it.
-
 
 ### Built with
 - Node.js
