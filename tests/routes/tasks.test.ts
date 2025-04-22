@@ -70,6 +70,30 @@ describe('Task Routes', () => {
                   },
                 }),
               }),
+
+              //Only testing the route
+              update: () => ({
+                eq: (field: string, value: string) => ({
+                  select: () => ({
+                    single: () => {
+                      const updatedTask: TaskRow = {
+                        id: value,
+                        title: 'Updated Task',
+                        status: 'Completed',
+                        description: null,
+                        user_id: 'test-user-id',
+                        created_at: new Date().toISOString(),
+                        updated_at: new Date().toISOString(),
+                      };
+
+                      return {
+                        data: updatedTask,
+                        error: null
+                      }
+                    }
+                  })
+                })
+              })
             };
           }
           return {};
@@ -99,5 +123,17 @@ describe('Task Routes', () => {
     expect(response.body).toHaveProperty('id');
     expect(response.body).toHaveProperty('title', 'Test Task');
     expect(response.body).toHaveProperty('status', 'To Do');
+  });
+
+  it('should update an existing task', async () => {
+    const taskId = 'mock-id-123';
+    const response = await request(app)
+      .patch(`/api/tasks/${taskId}`)
+      .send({
+        status: 'Completed'
+      })
+      .expect(200);
+
+    expect(response.body).toHaveProperty('status', 'Completed');
   });
 });
