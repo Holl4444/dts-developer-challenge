@@ -136,4 +136,34 @@ describe('Task Routes', () => {
 
     expect(response.body).toHaveProperty('status', 'Completed');
   });
+
+  it('should completely replace an existing task via PUT', async () => {
+    const taskId = 'mock-id-123';
+    const response = await request(app)
+      .put(`/api/tasks/${taskId}`)
+      .send({
+        title: 'New Title',
+        status: 'In Progress',
+        description: 'Complete replacement',
+      })
+      .expect(200);
+
+    expect(response.body).toHaveProperty('id', taskId);
+    expect(response.body).toHaveProperty('title', 'Updated Task');
+    expect(response.body).toHaveProperty('status', 'Completed');
+  });
+
+  it('should return 400 when PUT request is missing required fields', async () => {
+    const taskId = 'mock-id-123';
+    const response = await request(app)
+      .put(`/api/tasks/${taskId}`)
+      .send({
+        // Missing title, only sending status
+        status: 'In Progress',
+      })
+      .expect(400);
+
+    expect(response.body).toHaveProperty('error');
+    expect(response.body.error).toContain('required');
+  });
 });

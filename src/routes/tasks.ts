@@ -131,6 +131,36 @@ router.patch('/:id', async (req: Request<{id: string}, {}, TaskUpdate>, res: Res
   }
 });
 
-// PUT
+// Update all of one existing task
+router.put('/:id', async (req: Request<{ id: string }, {}, TaskUpdate>, res: Response) => {
+  try {
+      if (!req.body.title || !req.body.status) {
+        res.status(400).json({ error: 'Title and status are required' });
+        return;
+    }
+        const { data, error } = await supabase
+          .from('Tasks')
+          .update(req.body)
+          .eq('id', req.params.id)
+          .select()
+          .single();
+    
+        if (error) {
+          res.status(500).json({ error: error.message });
+          return;
+        }
+
+        if (!data) {
+          res.status(404).json({ error: 'Task not found' });
+          return;
+        }
+
+        res.status(200).json(data);
+
+  } catch (err){
+    console.error(`Error replacing task`, err);
+    res.status(500).json({ error: `Failed to replace task` });
+  }
+});
 
 export default router;
