@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import supabase from '../config/supabase.js';
-import { TaskInsert } from '../types/database.types.js';
+import { TaskInsert, TaskUpdate } from '../types/database.types.js';
 
 // Now holds '/api/tasks/' path
 const router = express.Router();
@@ -84,9 +84,9 @@ router.delete('/:id', async (req: Request, res: Response) => {
       .delete()
       .eq('id', `${req.params.id}`).single();
     
-      if (error) {
-        res.status(500).json({ error: error.message });
-        return;
+    if (error) {
+      res.status(500).json({ error: error.message });
+      return;
     }
     res.json({
       message: `Task deleted successfully`,
@@ -102,8 +102,35 @@ router.delete('/:id', async (req: Request, res: Response) => {
       });
     return;
   }
-})
+});
 
-// PUT, PATCH
+router.patch('/:id', async (req: Request<{id: string}, {}, TaskUpdate>, res: Response) => {
+  try {
+    const { data, error } = await supabase
+      .from('Tasks')
+      .update(req.body)
+      .eq('id', req.params.id)
+      .select()
+      .single();
+    
+    if (error) {
+      res.status(500).json({ error: error.message });
+      return;
+    }
+
+    if (!data) {
+      res.status(404).json({ error: 'Task not found' });
+      return;
+    }
+
+    res.status(200).json(data);
+  } catch (err) {
+    console.error(`Error updating task`, err);
+    res.status(500).json({ error: `Failed to update task` });
+    return;
+  }
+});
+
+// PUT
 
 export default router;

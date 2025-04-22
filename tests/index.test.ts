@@ -4,7 +4,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import taskRoutes from '../src/routes/tasks.js';
 
-// Create a test app that mimics your main app setup
+// Create a test app that mimics the main app setup
 const createTestApp = () => {
   dotenv.config();
   const app = express();
