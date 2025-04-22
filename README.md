@@ -49,6 +49,10 @@ Database Choice: Supabase
 - Intuitive dashboard.
 - I have some familiarity with it.
 
+Testing suite choice: Vitest
+- Fast and comprehensive.
+- Have experience using it.
+
 ### Built with
 - Node.js
 - Express
