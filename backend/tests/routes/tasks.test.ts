@@ -88,12 +88,12 @@ describe('Task Routes', () => {
 
                       return {
                         data: updatedTask,
-                        error: null
-                      }
-                    }
-                  })
-                })
-              })
+                        error: null,
+                      };
+                    },
+                  }),
+                }),
+              }),
             };
           }
           return {};
@@ -130,7 +130,7 @@ describe('Task Routes', () => {
     const response = await request(app)
       .patch(`/api/tasks/${taskId}`)
       .send({
-        status: 'Completed'
+        status: 'Completed',
       })
       .expect(200);
 
