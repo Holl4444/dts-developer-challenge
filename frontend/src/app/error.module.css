@@ -1,0 +1,45 @@
+.errorStructure {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.errorFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorFlex > h2 {
+    font-size: large;
+    color: whitesmoke;
+    margin: 3rem;
+}
+
+.errorFlex > button {
+    all:unset;
+    cursor: pointer;
+    padding: 0.3rem;
+    width: 6rem;
+    height: 2rem;
+    background-color: #404981;
+    color: white;
+    text-align: center;
+    border-radius: 0.2em;
+    box-shadow: 0 0 4px 3px whitesmoke;
+    transition: all 0.5ms ease-in;
+}
+
+.errorFlex > button:hover {
+    box-shadow: 0 0 2px 1px whitesmoke;
+    width: 5.9rem;
+    height: 1.9rem;
+    margin-top: 0.1rem;
+    filter: brightness(95%);
+}
+
+.errorFlex > button:active {
+    filter: brightness(105%);
+}
