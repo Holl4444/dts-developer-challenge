@@ -1,56 +1,14 @@
 {
-  "name": "dts-developer-challenge",
-  "version": "1.0.0",
-  "description": "DTS Developer Technical Test\r Objective\r To assess your ability to build a simple API and frontend using best coding practices.",
-  "type": "module",
+  "name": "dts-developer-challenge-root",
+  "private": true,
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc -p tsconfig.build.json",
-    "start": "node dist/index.js",
-    "test": "vitest",
-    "test:run": "vitest --run",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "prepare": "husky",
-    "gen:types": "npx supabase gen types typescript --project-id jlzuluvkfegebsednyha > src/types/database.types.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Holl4444/dts-developer-challenge.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/Holl4444/dts-developer-challenge/issues"
-  },
-  "homepage": "https://github.com/Holl4444/dts-developer-challenge#readme",
-  "dependencies": {
-    "@supabase/supabase-js": "^2.49.4",
-    "dotenv": "^16.4.7",
-    "express": "^5.1.0"
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "test:backend": "npm run test --prefix backend",
+    "build:backend": "npm run build --prefix backend"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@types/express": "^5.0.1",
-    "@types/node": "^22.14.0",
-    "@types/supertest": "^6.0.3",
-    "@vitest/coverage-v8": "^3.1.1",
-    "@vitest/eslint-plugin": "^1.1.40",
-    "eslint": "^9.24.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.5.0",
-    "prettier": "^3.5.3",
-    "supabase": "^2.20.12",
-    "supertest": "^7.1.0",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.3",
-    "vitest": "^3.1.1"
+    "concurrently": "^8.2.2"
   }
 }
