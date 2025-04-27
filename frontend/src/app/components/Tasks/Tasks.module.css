@@ -1,10 +1,29 @@
+.totTasks {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
 .carouselContainer {
+    width: 60vw;
     display: flex;
     flex-direction: column;
+    row-gap: 2rem;
+}
+
+.carouselDisp {
+    display: flex;
+}
+
+.carouselDisp > h2 {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
 }
 
 .btnDiv {
-    margin: 1rem 0 2rem;
+    margin: 1rem  0  2rem 2rem;
     display: grid;
     grid-template-columns: 6rem 6rem; /* Fixed width columns */
     gap: 2rem;
@@ -13,7 +32,7 @@
 
 
 .addBtn, .searchBtn{
-    all:unset;
+    all: unset;
     cursor: pointer;
     padding: 0.3rem;
     width: 6rem;
@@ -30,10 +49,7 @@
     box-shadow: 0 0 2px 1px whitesmoke;
     width: 5.9rem;
     height: 1.9rem;
-    margin-top: 0.1rem;
     filter: brightness(95%);
-    width: 5.9rem;
-    height: 1.9rem;
 }
 
 .addBtn:active, .searchBtn:active{

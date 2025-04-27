@@ -3,13 +3,12 @@ import { TaskRow } from '../../../backend/src/types/database.types';
 
 function getPrioLists (tasks: TaskRow[]) 
 {
-    const currentDate = Date.now();
+  const currentDate = Date.now();
     const highPrio: React.ReactNode[] = [];
     const midPrio: React.ReactNode[] = [];
     const lowPrio: React.ReactNode[] = [];
 
     tasks.forEach(task => {
-
       let priority = `low`;
 
       if (task.due) {
@@ -32,9 +31,19 @@ function getPrioLists (tasks: TaskRow[])
       }
       lowPrio.push(<TaskCard task={task} priority={priority} />);
     });
-
     return { highPrio, midPrio, lowPrio }
 }
 
+function formatDueDate(due: TaskRow["due"]) {
+  if (due) {
+    const formatted = new Date(due).toLocaleDateString('en-EU', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    });
+    return formatted;
+  }
+}
+
  
-export { getPrioLists };
+export { getPrioLists, formatDueDate };

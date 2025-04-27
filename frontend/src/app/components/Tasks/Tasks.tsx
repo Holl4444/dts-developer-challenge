@@ -27,24 +27,39 @@ export default function Tasks() {
 
   const taskNo: number = allTasks.length;
   const { highPrio, midPrio, lowPrio } = getPrioLists(allTasks);
+  const noHigh = highPrio.length;
+  const noMid = midPrio.length;
+  const noLow = lowPrio.length;
 
   return (
     <div>
-      <h3>Total Tasks: {taskNo}</h3>
-      <div className={styles.carouselContainer}>
-        {highPrio && (
-          <Carousel slides={highPrio} options={{ dragFree: true }} />
-        )}
-        {midPrio && (
-          <Carousel slides={midPrio} options={{ dragFree: true }} />
-        )}
-        {lowPrio && (
-          <Carousel slides={lowPrio} options={{ dragFree: true }} />
-        )}
-      </div>
+      <h3 className={styles.totTasks}>Total Tasks: {taskNo}</h3>
       <div className={styles.btnDiv}>
         <button className={styles.addBtn}>Add Task</button>
         <button className={styles.searchBtn}>Search Task</button>
+      </div>
+      <div className={styles.carouselContainer}>
+        {highPrio && (
+          <div className={styles.carouselDisp}>
+            <h2>{noHigh}</h2>
+            <Carousel
+              slides={highPrio}
+              options={{ dragFree: true }}
+            />
+          </div>
+        )}
+        {midPrio && (
+          <div className={styles.carouselDisp}>
+            <h2>{noMid}</h2>
+            <Carousel slides={midPrio} options={{ dragFree: true }} />
+          </div>
+        )}
+        {lowPrio && (
+          <div className={styles.carouselDisp}>
+            <h2>{noLow}</h2>
+            <Carousel slides={lowPrio} options={{ dragFree: true }} />
+          </div>
+        )}
       </div>
     </div>
   );

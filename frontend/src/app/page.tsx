@@ -4,7 +4,7 @@ import styles from './page.module.css';
 export default function Home() {
   return (
     <main className={styles.content}>
-      <h1 className={styles.title}>Task Management App</h1>
+      <h1 className={styles.title}>Task Tamer</h1>
       <Tasks />
     </main>
   );

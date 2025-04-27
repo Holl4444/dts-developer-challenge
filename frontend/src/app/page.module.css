@@ -8,4 +8,11 @@
 
 .title {
    margin: 3rem;
+   background-color: #404981;
+   width: 100vw;
+   height: 5rem;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
