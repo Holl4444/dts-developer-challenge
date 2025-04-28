@@ -8,3 +8,7 @@
 body {
     background-color: #1E212B;
 }
+
+input, select, textarea {
+  all: unset;
+}

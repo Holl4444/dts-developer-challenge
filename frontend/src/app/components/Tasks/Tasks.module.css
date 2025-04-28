@@ -3,6 +3,28 @@
     margin-bottom: 2rem;
 }
 
+.searchFormContainer {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #f5f5f5;
+}
+
+.closeBtn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #404981;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.closeBtn:hover {
+    background-color: #333;
+}
+
 .carouselContainer {
     width: 60vw;
     display: flex;

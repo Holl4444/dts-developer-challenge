@@ -44,10 +44,12 @@ export default function TaskCard(
             {task.description ? task.description : `Description`}
           </p>
         </div>
-
-        <div className={styles.btnDiv}>
-          <button className={styles.updateBtn}>Update Task</button>
-          <button className={styles.delBtn}>Delete Task</button>
+        <div className={styles.bottomRow}>
+          <div className={styles.btnDiv}>
+            <button className={styles.updateBtn}>Update Task</button>
+            <button className={styles.delBtn}>Delete Task</button>
+          </div>
+          <p>{task.id}</p>
         </div>
       </div>
     </div>

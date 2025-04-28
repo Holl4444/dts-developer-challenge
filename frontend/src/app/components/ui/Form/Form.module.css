@@ -1,5 +1,6 @@
-.cardHigh, .cardMid, .cardLow {
-    height: 100%;
+.form {
+    background-color: #404981;
+    height: 20rem;
     width: 35rem;
     max-width: 35rem;
     min-width: none;
@@ -7,83 +8,99 @@
     grid-template-columns: 2fr 4fr;
     grid-template-rows: 1fr;
     column-gap: 1.5rem;
-    padding: 1.3rem;
+    padding: 1rem;
     user-select: none;
 }
 
-.cardHigh {
-    background-color: #FF8427;
-}
-
-.cardMid {
-    background-color: #FFC800;
-}
-
-.cardLow {
-    background-color: #4D8B31;
-}
 
 .cardLeft {
     grid-column: 1;
     display: grid;
     grid-template-rows: 5rem 4rem;
     flex-direction: column;
-    row-gap: 2rem;
+    row-gap: 3rem;
+}
+
+.statusWrap, .dueWrap, .titleWrap, .idWrap {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: 0.3rem;
+}
+
+.idTitleWrap {
+    display: grid;
+    grid-template-rows: auto auto;
+    row-gap: 3.5rem;
+}
+
+.idWrap {
+    grid-row: 1;
+    height: 1rem;
 }
 
 .titleWrap {
-    grid-row: 1 / 2;
+    grid-row: 2;
+    height: 3rem;
 }
 
 .statusDueWrap {
-    grid-row: 2;
     display: grid;
     grid-template-rows: auto auto;
-    row-gap: 1rem;
+    row-gap: 0.5rem;
 }
 
+.statusWrap {
+    grid-row: 3;
+}
 
-.title, .status, .due, .description {
-    padding: 0.5rem;
-    background-color: whitesmoke;
+.dueWrap {
+    grid-row: 4;
+}
+
+.statusWrap > select > option {
     color: #404981;
-    min-height: 2rem;
 }
 
 
-
-.title {
-    min-height: 5rem;
-}
-
-.description {
-    min-height: 13.4rem;
+.id, .title, .status, .due, .description {
+padding: 0.5rem;
+background-color: whitesmoke;
+color: #404981;
+height: 1.5rem;
 }
 
 .cardRight {
     display: grid;
     grid-template-columns: 5fr 5fr 5fr 1fr;
-    grid-template-rows: 9fr 1fr;
+    grid-template-rows: 12fr 0.5fr;
     flex-direction: column;
     grid-column: 2;
 }
 
 .descriptionWrap {
+    min-height: 7rem;
     grid-row: 1;
     grid-column: 1 / 5;
     min-height: 7rem;
 }
+
+.description {
+    height: 13.4rem;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
 
 .btnDiv {
     grid-row: 2;
     grid-column: 1 / 5;
     display: flex;
     column-gap: 1rem;
-    justify-self: end;
+    margin-left: auto;
 }
 
 
-.updateBtn, .delBtn{
+.submit{
     all:unset;
     font-size: 0.9rem;
     cursor: pointer;
