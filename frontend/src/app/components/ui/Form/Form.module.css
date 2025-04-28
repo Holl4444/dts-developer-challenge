@@ -1,0 +1,113 @@
+.cardHigh, .cardMid, .cardLow {
+    height: 100%;
+    width: 35rem;
+    max-width: 35rem;
+    min-width: none;
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    grid-template-rows: 1fr;
+    column-gap: 1.5rem;
+    padding: 1.3rem;
+    user-select: none;
+}
+
+.cardHigh {
+    background-color: #FF8427;
+}
+
+.cardMid {
+    background-color: #FFC800;
+}
+
+.cardLow {
+    background-color: #4D8B31;
+}
+
+.cardLeft {
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 5rem 4rem;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.titleWrap {
+    grid-row: 1 / 2;
+}
+
+.statusDueWrap {
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: auto auto;
+    row-gap: 1rem;
+}
+
+
+.title, .status, .due, .description {
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    color: #404981;
+    min-height: 2rem;
+}
+
+
+
+.title {
+    min-height: 5rem;
+}
+
+.description {
+    min-height: 13.4rem;
+}
+
+.cardRight {
+    display: grid;
+    grid-template-columns: 5fr 5fr 5fr 1fr;
+    grid-template-rows: 9fr 1fr;
+    flex-direction: column;
+    grid-column: 2;
+}
+
+.descriptionWrap {
+    grid-row: 1;
+    grid-column: 1 / 5;
+    min-height: 7rem;
+}
+
+.btnDiv {
+    grid-row: 2;
+    grid-column: 1 / 5;
+    display: flex;
+    column-gap: 1rem;
+    justify-self: end;
+}
+
+
+.updateBtn, .delBtn{
+    all:unset;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.2rem;
+    min-width: fit-content;
+    min-height: fit-content;
+    width: 1rem;
+    height: 0.3rem;
+    background-color: #404981;
+    color: white;
+    text-align: center;
+    border-radius: 0.04em;
+    box-shadow: 0 0 2px 1px whitesmoke;
+    transition: all 0.2ms;
+    text-wrap: nowrap;
+}
+
+.updateBtn:hover, .delBtn:hover{
+    box-shadow: none;
+    width: 0.98rem;
+    height: 0.31rem;
+    filter: brightness(95%);
+}
+
+.updateBtn:active, .delBtn:active{
+    filter: brightness(105%);
+}
